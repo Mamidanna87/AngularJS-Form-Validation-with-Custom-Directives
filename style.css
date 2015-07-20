@@ -1,0 +1,36 @@
+/* Styles go here */
+
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+/*.person-form {
+  border: solid 1px #CCC;
+  width: 500px;
+  padding: 20px;
+}*/
+
+.person-form div {
+  width: 300px;
+  margin-bottom: 5px;
+  border: solid 0px red;
+  font-size: 14px;
+}
+
+.person-form div label {
+  display: inline-block;
+  width: 120px;
+}
+
+.main-container {
+  border: solid 1px #ccc;
+  width: 500px;
+  height: 500px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.button-wrapper {
+  margin: 20px;
+}

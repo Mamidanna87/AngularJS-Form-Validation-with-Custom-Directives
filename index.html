@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="style.css" rel="stylesheet" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div ng-app="myApp">
+    
+
+    <div class="main-container" ng-controller="RegistrationController">
+
+      <h1>Simple Registration Form</h1>
+      <form class="person-form" name="personForm">
+        <pre>isEditable = {{isEdit}} </pre>
+        <fieldset ng-disabled="!isEdit">
+          <div>
+            <label for="firstName">First name:</label>
+            <input type="text" ng-model="person.firstName" name="firstName" id="firstName" />
+          </div>
+          <div>
+            <label for="lastName">Last name:</label>
+            <input type="text" ng-model="person.lastName" name="lastName" id="lastName" />
+          </div>
+          <div>
+            <label for="emailAddress">Email Address:</label>
+            <input type="text" ng-model="person.email" name="emailAddress" id="emailAddress" />
+          </div>
+        </fieldset>
+        <div class="button-wrapper">
+          <button ng-show="isEdit" type="submit">Submit</button>
+          <button toggle="isEdit" ng-click="postToggle(person)">Make Form {{ isEdit ? 'Non-Editable' : 'Editable' }}</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <script type="text/javascript">
+    function RegistrationController($scope) {
+      $scope.isEdit = false;
+      var defaultForm = {
+        firstName: "",
+        lastName: "",
+        email: ""
+      };
+      $scope.person = defaultForm;
+      $scope.postToggle = function(person) {
+        //make the record pristine
+        $scope.personForm.$setPristine();
+        $scope.person = {
+          firstName: "",
+          lastName: "",
+          email: ""
+        };
+      };
+    }
+  </script>
+</body>
+
+</html>
